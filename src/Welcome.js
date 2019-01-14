@@ -5,6 +5,7 @@ class Welcome extends React.Component{
 		return (
 			<div>
 				<h1> Hello World </h1>
+				{66+33}
 			</div>
 			)
 	}
