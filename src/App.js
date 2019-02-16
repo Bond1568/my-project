@@ -6,42 +6,48 @@ import DigitalClock from './components/DigitalClock'
 import CommentBox from './components/CommentBox'
 import CommentBoxNew from './components/CommentBoxNew'
 import CommentList from './components/CommentList'
+import PriceList from './components/PriceList'
+
 
 const tags = ['恐龙','足球小子']
 
-class App extends Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      comments: ['these are all comments']
-    }
-    this.addComment = this.addComment.bind(this)
-  } 
+const items = [{"id":1,
+               "title":"去云南旅游",
+               "price":200,
+               "category":{
+                "id":"1",
+                "name":"旅行",
+                "type":"outcome"
+               }
+              },
+              {"id":2,
+               "title":"去西藏旅游",
+               "price":500,
+               "category":{
+                "id":"2",
+                "name":"旅行",
+                "type":"outcome"
+               }
+              }
+            ]
 
-  addComment(addComment) {
-    this.setState({
-      comments: [...this.state.comments, addComment]
-    })
-  }
+class App extends Component {
+
+
+
 
   render() {
-    const { comments } = this.state
+   
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <NameCard name="Viking" number={123456789} tags={tags}/>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <DigitalClock />  
-        <CommentBox />
 
-        <CommentList comments={comments}></CommentList>
-        <CommentBoxNew commentsLength={comments.length} onAddComment={ this.addComment }/>
-        
+        <PriceList items={items} onModifyItem={(item) => {(alert(item.id))}} onDeleteItem={(item) => {(alert(item.id))}} /> 
+
+
       </div>
     );
   }
