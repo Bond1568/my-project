@@ -47,7 +47,11 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
 
-        <MonthPicker year={2019} month={8} />
+        <MonthPicker
+          year={2019}
+          month={8}
+          onChange={(selectedYear, selectedMonth) => {alert(selectedYear+"++"+selectedMonth)}}
+          />
 
         <ViewTab
           activeTab={LIST_VIEW}
